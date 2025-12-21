@@ -1,6 +1,6 @@
-import { getPostData, getAllPostSlugs } from '../../../lib/posts';
+import { getPostData, getAllPostSlugs } from '../../lib/posts';
 import Link from 'next/link';
-import { ThemeToggle } from '../../components/theme-toggle';
+import { ThemeToggle } from '../components/theme-toggle';
 
 export async function generateStaticParams() {
   const paths = getAllPostSlugs();
@@ -16,7 +16,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
       <nav className="max-w-4xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <Link href="/blog" className="text-blue-600 dark:text-blue-400 hover:underline font-mono">
+        <Link href="/" className="text-blue-600 dark:text-blue-400 hover:underline font-mono">
           &larr; cd ..
         </Link>
         <ThemeToggle />
