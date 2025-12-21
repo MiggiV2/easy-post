@@ -5,7 +5,7 @@ on:
     branches:  ['main']
 
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: code.mymiggi.de
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
