@@ -1,0 +1,16 @@
+name: easy-post
+
+services:
+  app:
+    container_name: easy-post
+    # Image from GitHub Container Registry (built by GitHub Actions)
+    image: ghcr.io/miggiv2/easy-post:main
+    # Build locally if needed
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
