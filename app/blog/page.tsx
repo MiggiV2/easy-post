@@ -1,14 +1,18 @@
 import Link from 'next/link';
 import { getSortedPostsData } from '../../lib/posts';
+import { ThemeToggle } from '../components/theme-toggle';
 
 export default function BlogIndex() {
   const allPostsData = getSortedPostsData();
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 font-mono">
-      <h1 className="text-4xl font-bold mb-12 tracking-tight text-gray-900 dark:text-white border-b-2 border-gray-200 dark:border-gray-700 pb-4">
-        /var/log/blog
-      </h1>
+      <div className="flex justify-between items-center mb-12 border-b-2 border-gray-200 dark:border-gray-700 pb-4">
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+          /var/log/blog
+        </h1>
+        <ThemeToggle />
+      </div>
       <div className="grid gap-6">
         {allPostsData.map(({ slug, title, date }) => (
           <Link

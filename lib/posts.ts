@@ -64,18 +64,26 @@ export async function getPostData(slug: string): Promise<PostData & { contentHtm
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
+  let title = matterResult.data.title;
+  let content = matterResult.content;
+
+  if (!title) {
+      const firstLine = content.split('\n')[0];
+      if (firstLine.startsWith('# ')) {
+        title = firstLine.replace(/^#\s+/, '');
+        // Remove the title from the content to avoid double rendering
+        content = content.split('\n').slice(1).join('\n');
+      } else {
+        title = slug;
+      }
+  }
+
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(remarkGfm)
     .use(html)
-    .process(matterResult.content);
+    .process(content);
   const contentHtml = processedContent.toString();
-
-  let title = matterResult.data.title;
-  if (!title) {
-      const firstLine = matterResult.content.split('\n')[0];
-      title = firstLine.replace(/^#\s+/, '') || slug;
-  }
 
   return {
     slug,
