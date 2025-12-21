@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Easy Post 📝
 
-## Getting Started
+A modern, clean, Server-Side Rendered (SSR) blog engine built for IT Nerds. 
+Designed to be simple, fast, and content-focused. No database required—just Markdown.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Markdown-First**: Write your posts in Markdown, drop them in the `/content` directory.
+- **Server-Side Rendering**: Built with Next.js 16 for optimal performance and SEO.
+- **Modern Styling**: Clean, minimalist aesthetic using Tailwind CSS 4 and `@tailwindcss/typography`.
+- **Zero Database**: No database setup or maintenance. Your file system is your CMS.
+- **Syntax Highlighting**: Ready for code snippets and technical content.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **UI Library**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Markdown Processing**: `remark`, `remark-html`, `gray-matter`
+- **Package Manager**: [pnpm](https://pnpm.io/)
+
+## 📂 Project Structure
+
+```
+easy-post/
+├── app/                # Next.js App Router pages
+│   ├── blog/           # Blog routes
+│   │   ├── page.tsx    # /blog (Overview)
+│   │   └── [slug]/     # /blog/[slug] (Individual Post)
+├── content/            # Markdown blog posts go here
+├── lib/                # Utility functions (markdown parsing)
+├── public/             # Static assets
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js (LTS recommended)
+- pnpm
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd easy-post
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Run the development server:
+   ```bash
+   pnpm dev
+   ```
 
-## Deploy on Vercel
+4. Open [http://localhost:3000/blog](http://localhost:3000/blog) to see your blog.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✍️ Adding Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Create a new Markdown file in the `content/` directory (e.g., `hello-world.md`).
+2. Add frontmatter at the top of the file:
+   ```markdown
+   ---
+   title: "Hello World"
+   date: "2023-10-27"
+   description: "My first post on Easy Post."
+   ---
+   
+   # Welcome
+   
+   This is my first blog post using **Easy Post**.
+   ```
+3. The post will automatically appear at `/blog/hello-world`.
+
+## 📜 License
+
+MIT
