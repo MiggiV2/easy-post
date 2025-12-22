@@ -1,4 +1,8 @@
-# Matrix Declassified: Why Your Recovery Key is the Real MVP
+---
+title: "Matrix Declassified"
+date: "2025-12-21"
+description: "Why Your Recovery Key is the Real MVP."
+---
 
 Let's talk about the elephant in the encrypted room. You just set up a new Matrix client (maybe Element X, because you're fancy like that), and you're staring at two buttons: "Verify with another device" or "Use Recovery Key."
 
@@ -72,18 +76,11 @@ So next time, don't fear the gibberish. Embrace the Recovery Key.
 ***
 
 ### Sources
-*  **Accessing Matrix - first steps**, University of Kassel.[4]
-*  **Resetting the server-side key backup**, Element Blog.[7]
-*  **Matrix Cryptographic Key Infrastructure**, Sumner Evans.[3]
-*  **Analysis of key management in Matrix**, Floris Hendriks (Radboud University).[1]
-*  **Megolm paper**, Matrix.org.[2]
-*  **Encrypting with Megolm**, Matrix Client Tutorial.[5]
-*  **Message Security in Matrix**, Sumner Evans.[6]
 
-[1](https://www.cs.ru.nl/bachelors-theses/2020/Floris_Hendriks___4749294___Analysis_of_key_management_in_Matrix.pdf)
-[2](https://nebuchadnezzar-megolm.github.io/static/paper.pdf)
-[3](https://sumnerevans.com/posts/matrix/cryptographic-key-infrastructure/)
-[4](https://www.uni-kassel.de/its/en/it-dienste-software/matrix-team-chat-kommunikation/zugriff-auf-matrix-erste-schritte.html)
-[5](https://uhoreg.gitlab.io/matrix-tutorial/megolm.html)
-[6](https://sumnerevans.com/posts/matrix/megolm/)
-[7](https://element.io/blog/resetting-the-server-side-key-backup/)
+1. **[Analysis of key management in Matrix](https://www.cs.ru.nl/bachelors-theses/2020/Floris_Hendriks___4749294___Analysis_of_key_management_in_Matrix.pdf)**, Floris Hendriks (Radboud University).
+2. **[Megolm paper](https://nebuchadnezzar-megolm.github.io/static/paper.pdf)**, Matrix.org.
+3. **[Matrix Cryptographic Key Infrastructure](https://sumnerevans.com/posts/matrix/cryptographic-key-infrastructure/)**, Sumner Evans.
+4. **[Accessing Matrix - first steps](https://www.uni-kassel.de/its/en/it-dienste-software/matrix-team-chat-kommunikation/zugriff-auf-matrix-erste-schritte.html)**, University of Kassel.
+5. **[Encrypting with Megolm](https://uhoreg.gitlab.io/matrix-tutorial/megolm.html)**, Matrix Client Tutorial.
+6. **[Message Security in Matrix](https://sumnerevans.com/posts/matrix/megolm/)**, Sumner Evans.
+7. **[Resetting the server-side key backup](https://element.io/blog/resetting-the-server-side-key-backup/)**, Element Blog.
