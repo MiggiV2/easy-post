@@ -14,7 +14,7 @@ export default function BlogIndex() {
         <ThemeToggle />
       </div>
       <div className="grid gap-6">
-        {allPostsData.map(({ slug, title, date }) => (
+        {allPostsData.map(({ slug, title, date, description }) => (
           <Link
             key={slug}
             href={`/${slug}`}
@@ -30,6 +30,11 @@ export default function BlogIndex() {
                 </span>
               )}
             </div>
+            {description && (
+              <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                {description}
+              </p>
+            )}
             <div className="text-sm text-gray-600 dark:text-gray-400 font-mono">
               Read more_
             </div>

@@ -43,6 +43,11 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white tracking-tight">
             {postData.title}
           </h1>
+          {postData.description && (
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">
+              {postData.description}
+            </p>
+          )}
           {postData.date && (
             <p className="text-gray-500 dark:text-gray-400 font-mono text-sm">
               Posted on {postData.date}
