@@ -37,6 +37,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # We copy to /usr/share/nginx/html/blog because basePath is /blog
 COPY --from=builder /app/out /usr/share/nginx/html/blog
 
-EXPOSE 3000
-
 CMD ["nginx", "-g", "daemon off;"]
