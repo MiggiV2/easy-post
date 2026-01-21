@@ -44,8 +44,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: |
-            NEXT_PUBLIC_SITE_URL=https://mymiggi.de/blog
 
       - name: Deploy via Portainer
         run: curl -v -X POST ${{ secrets.MYMIGGI_HOOK }}        

@@ -25,9 +25,6 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 # Disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED=1
 
-ARG NEXT_PUBLIC_SITE_URL
-ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
-
 RUN pnpm run build
 
 # Production image, serve with Nginx
