@@ -27,33 +27,16 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN pnpm run build
 
-# Production image, copy all the files and run next
-FROM base AS runner
-WORKDIR /app
+# Production image, serve with Nginx
+FROM nginx:alpine AS runner
 
-ENV NODE_ENV=production
-# Disable telemetry during runtime.
-ENV NEXT_TELEMETRY_DISABLED=1
+# Copy custom nginx config
+COPY nginx.conf /etc/nginx/nginx.conf
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
-COPY --from=builder /app/public ./public
-
-# Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
-
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-USER nextjs
+# Copy static files from builder
+# We copy to /usr/share/nginx/html/blog because basePath is /blog
+COPY --from=builder /app/out /usr/share/nginx/html/blog
 
 EXPOSE 3000
 
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
-
-CMD ["node", "server.js"]
+CMD ["nginx", "-g", "daemon off;"]
