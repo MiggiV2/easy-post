@@ -1,12 +1,12 @@
 # Easy Post 📝
 
-A modern, clean, Server-Side Rendered (SSR) blog engine built for IT Nerds. 
+A modern, clean, Static Site Generated (SSG) blog engine built for IT Nerds. 
 Designed to be simple, fast, and content-focused. No database required—just Markdown.
 
 ## 🚀 Features
 
 - **Markdown-First**: Write your posts in Markdown, drop them in the `/content` directory.
-- **Server-Side Rendering**: Built with Next.js 16 for optimal performance and SEO.
+- **Static Site Generation**: Built with Next.js 16 for optimal performance, served via Nginx.
 - **Modern Styling**: Clean, minimalist aesthetic using Tailwind CSS 4 and `@tailwindcss/typography`.
 - **Zero Database**: No database setup or maintenance. Your file system is your CMS.
 - **Syntax Highlighting**: Ready for code snippets and technical content.
@@ -59,6 +59,22 @@ easy-post/
    ```
 
 4. Open [http://localhost:3000/blog](http://localhost:3000/blog) to see your blog.
+
+## 🐳 Docker
+
+Build and run the static site with Docker and Nginx:
+
+1. Build the image:
+   ```bash
+   docker build -t easy-post .
+   ```
+
+2. Run the container:
+   ```bash
+   docker run -p 3000:3000 easy-post
+   ```
+
+3. Open [http://localhost:3000/blog](http://localhost:3000/blog).
 
 ## ✍️ Adding Content
 
