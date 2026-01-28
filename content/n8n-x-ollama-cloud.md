@@ -1,7 +1,7 @@
 ---
 title: "From Frustration to Automation: My n8n & Ollama Journey"
 date: "2026-01-28"
-draft: true
+draft: false
 description: "How I overcame initial struggles with n8n to build powerful AI workflows using my Raspberry Pi and Ollama Cloud"
 ---
 
