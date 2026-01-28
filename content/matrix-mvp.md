@@ -1,6 +1,7 @@
 ---
 title: "Matrix Declassified"
 date: "2025-12-21"
+draft: false
 description: "Why Your Recovery Key is the Real MVP."
 ---
 

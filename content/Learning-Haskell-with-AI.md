@@ -1,6 +1,7 @@
 ---
 title: "Learning Haskell with AI: A Surprisingly Fun Journey"
 date: "2025-12-22"
+draft: false
 description: "How an AI tutor turned forgotten syntax into elegant solutions and made functional programming genuinely fun."
 ---
 

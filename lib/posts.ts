@@ -17,13 +17,20 @@ export interface PostData {
 
 export function getAllPostSlugs() {
   const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        slug: fileName.replace(/\.md$/, ''),
-      },
-    };
-  });
+  return fileNames
+    .filter((fileName) => {
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const matterResult = matter(fileContents);
+      return matterResult.data.draft === false;
+    })
+    .map((fileName) => {
+      return {
+        params: {
+          slug: fileName.replace(/\.md$/, ''),
+        },
+      };
+    });
 }
 
 export function getSortedPostsData(): PostData[] {
@@ -54,7 +61,7 @@ export function getSortedPostsData(): PostData[] {
     };
   });
   
-  return allPostsData;
+  return allPostsData.filter((post) => post.draft === false);
 }
 
 export async function getPostData(slug: string): Promise<PostData & { contentHtml: string }> {
