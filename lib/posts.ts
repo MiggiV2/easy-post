@@ -62,7 +62,15 @@ export function getSortedPostsData(): PostData[] {
     } as PostData;
   });
   
-  return allPostsData.filter((post) => process.env.NODE_ENV === 'development' || post.draft === false);
+  return allPostsData
+    .filter((post) => process.env.NODE_ENV === 'development' || post.draft === false)
+    .sort((a, b) => {
+      if ((a.date || '') < (b.date || '')) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
 }
 
 export async function getPostData(slug: string): Promise<PostData & { contentHtml: string }> {
