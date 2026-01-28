@@ -11,6 +11,7 @@ export interface PostData {
   slug: string;
   title: string;
   date?: string;
+  draft?: boolean;
   contentHtml?: string;
   [key: string]: any;
 }
@@ -22,7 +23,7 @@ export function getAllPostSlugs() {
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const matterResult = matter(fileContents);
-      return matterResult.data.draft === false;
+      return process.env.NODE_ENV === 'development' || matterResult.data.draft === false;
     })
     .map((fileName) => {
       return {
@@ -58,10 +59,10 @@ export function getSortedPostsData(): PostData[] {
       slug,
       title,
       ...matterResult.data,
-    };
+    } as PostData;
   });
   
-  return allPostsData.filter((post) => post.draft === false);
+  return allPostsData.filter((post) => process.env.NODE_ENV === 'development' || post.draft === false);
 }
 
 export async function getPostData(slug: string): Promise<PostData & { contentHtml: string }> {

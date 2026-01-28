@@ -14,7 +14,7 @@ export default function BlogIndex() {
         <ThemeToggle />
       </div>
       <div className="grid gap-6">
-        {allPostsData.map(({ slug, title, date, description }) => (
+        {allPostsData.map(({ slug, title, date, description, draft }) => (
           <Link
             key={slug}
             href={`/${slug}`}
@@ -24,11 +24,18 @@ export default function BlogIndex() {
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
                 {title}
               </h2>
-              {date && (
-                <span className="text-xs font-mono text-gray-500 dark:text-gray-500 bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded w-fit">
-                  {date}
-                </span>
-              )}
+              <div className="flex gap-2 items-center">
+                {draft === true && (
+                  <span className="text-xs font-mono text-yellow-800 dark:text-yellow-200 bg-yellow-100 dark:bg-yellow-900 px-2 py-1 rounded w-fit">
+                    DRAFT
+                  </span>
+                )}
+                {date && (
+                  <span className="text-xs font-mono text-gray-500 dark:text-gray-500 bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded w-fit">
+                    {date}
+                  </span>
+                )}
+              </div>
             </div>
             {description && (
               <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">

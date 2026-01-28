@@ -43,6 +43,11 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white tracking-tight">
             {postData.title}
           </h1>
+          {postData.draft === true && (
+            <span className="inline-block mb-4 text-xs font-mono text-yellow-800 dark:text-yellow-200 bg-yellow-100 dark:bg-yellow-900 px-2 py-1 rounded w-fit">
+              DRAFT
+            </span>
+          )}
           {postData.description && (
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">
               {postData.description}
