@@ -28,7 +28,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN pnpm run build
 
 # Production image, serve with Nginx
-FROM nginx:alpine AS runner
+FROM nginx:alpine-slim AS runner
 
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/nginx.conf
